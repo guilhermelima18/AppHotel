@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppHotel.View.ContratacaoHospedagem"
+             BackgroundColor="DarkOliveGreen">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Cálculo da Hospedagem" />
+            <Frame 
+                CornerRadius="10" 
+                BackgroundColor="#EEE" 
+                Margin="10, 0, 10, 10"
+                Padding="20">
+                <StackLayout>
+                    <Grid 
+                        ColumnDefinitions="*, *, 2*" 
+                        RowDefinitions="*, *">
+                        <Label 
+                            Grid.Row="0" 
+                            Grid.Column="0"
+                            Text="Adultos:" />
+                        <Label 
+                            Grid.Row="0" 
+                            Grid.Column="1"
+                            x:Name="lblQtdeAdultos"
+                            BindingContext="{x:Reference stepperAdultos}"
+                            Text="{Binding Value}" />
+                        <Stepper 
+                            Grid.Row="0" 
+                            Grid.Column="2" 
+                            x:Name="stepperAdultos"
+                            Minimum="0"
+                            Maximum="10"
+                            Increment="1" />
+
+                        <Label 
+                            Grid.Row="1" 
+                            Grid.Column="0"
+                            Text="Crianças:" />
+                        <Label 
+                            Grid.Row="1" 
+                            Grid.Column="1"
+                            x:Name="lblQtdeCriancas"
+                            BindingContext="{x:Reference stepperCriancas}"
+                            Text="{Binding Value}" />
+                        <Stepper 
+                            Grid.Row="1" 
+                            Grid.Column="2" 
+                            x:Name="stepperCriancas"
+                            Minimum="0"
+                            Maximum="10"
+                            Increment="1" />
+                    </Grid>
+
+                    <Label Text="Escolha sua suíte" />
+                    <Picker 
+                        x:Name="pckSuite" 
+                        Title="Selecione sua acomodação" />
+
+                    <Frame 
+                        BackgroundColor="#DDD"
+                        CornerRadius="10"
+                        Margin="10">
+                        <StackLayout>
+                            <Label Text="Período da estadia" />
+                            <FlexLayout AlignItems="Center">
+                                <Label Text="Check-in" />
+                                <DatePicker 
+                                    x:Name="dtpckCheckIn" 
+                                    Format="dd/MM/yyyy" Margin="15, 0, 0, 0" />
+                            </FlexLayout>
+                            <FlexLayout AlignItems="Center">
+                                <Label Text="Check-out" />
+                                <DatePicker 
+                                    x:Name="dtpckCheckOut" 
+                                    Format="dd/MM/yyyy" Margin="15, 0, 0, 0" />
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Button Text="Calcular hospedagem" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
