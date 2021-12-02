@@ -9,6 +9,5 @@ namespace AppHotel.Model
         public string Nome { get; set; }
         public double DiariaAdulto { get; set; }
         public double DiariaCrianca { get; set; }
-
     }
 }
