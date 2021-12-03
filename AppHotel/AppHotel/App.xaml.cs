@@ -16,7 +16,14 @@ namespace AppHotel
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.ContratacaoHospedagem());
+            if (Properties.ContainsKey("usuario_logado"))
+            {
+                MainPage = new NavigationPage(new View.ContratacaoHospedagem());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new View.Login());
+            }
         }
 
         public List<Suite> ListaSuites = new List<Suite>

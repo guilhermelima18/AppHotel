@@ -22,6 +22,8 @@ namespace AppHotel.View
 
             PropriedadesApp = (App)Application.Current;
 
+            lblUsuario.Text = App.Current.Properties["usuario_logado"].ToString();
+
             pckSuite.ItemsSource = PropriedadesApp.ListaSuites;
 
             // Trava a data no dia atual
@@ -50,7 +52,7 @@ namespace AppHotel.View
         {
             try
             {
-                Navigation.PushAsync(
+                App.Current.MainPage =
                     new HospedagemCalculada()
                     {
                         BindingContext = new Hospedagem()
@@ -61,12 +63,22 @@ namespace AppHotel.View
                             DataCheckIn = dtpckCheckIn.Date,
                             DataCheckOut = dtpckCheckOut.Date
                         }
-                    }
-                );
+                    };
             }
             catch (Exception ex)
             {
                 DisplayAlert("Ops", ex.Message, "Ok");
+            }
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            bool confirmacaoSaida = await DisplayAlert("Tem certeza?", "Desconectar sua conta?", "Sim", "Não");
+
+            if (confirmacaoSaida)
+            {
+                App.Current.Properties.Remove("usuario_logado");
+                App.Current.MainPage = new Login();
             }
         }
     }

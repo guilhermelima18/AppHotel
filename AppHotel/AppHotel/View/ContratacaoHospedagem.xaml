@@ -18,6 +18,10 @@
                 Margin="10, 0, 10, 10"
                 Padding="20">
                 <StackLayout>
+                    <FlexLayout Margin="0, 0, 0, 20">
+                        <Label Text="Bem-vindo(a) " FontSize="Medium" />
+                        <Label x:Name="lblUsuario" FontSize="Medium" TextColor="DarkRed" />
+                    </FlexLayout>
                     <Grid 
                         ColumnDefinitions="*, *, 2*" 
                         RowDefinitions="*, *">
@@ -34,8 +38,6 @@
                         <Stepper 
                             Grid.Row="0" 
                             Grid.Column="2" 
-                            BackgroundColor="Black"
-                            Background="red"
                             x:Name="stepperAdultos"
                             Minimum="0"
                             Maximum="10"
@@ -87,6 +89,7 @@
                         </StackLayout>
                     </Frame>
                     <Button Text="Calcular hospedagem" Clicked="Button_Clicked" />
+                    <Button Text="Sair" Clicked="Button_Clicked_1" />
                 </StackLayout>
             </Frame>
         </StackLayout>

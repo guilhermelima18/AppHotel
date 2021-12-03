@@ -33,7 +33,7 @@
                 <Grid RowDefinitions="*, *" ColumnDefinitions="*, *, *">
                     <Label Text="Check In" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" />
                     <Label 
-                        Text="{Binding CheckIn, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                        Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}" 
                         Grid.Row="1" 
                         Grid.Column="0" 
                         TextColor="DarkRed" 
@@ -42,7 +42,7 @@
 
                     <Label Text="Check Out" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" />
                     <Label 
-                        Text="{Binding CheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                        Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" 
                         Grid.Row="1" 
                         Grid.Column="1" 
                         TextColor="DarkRed" 

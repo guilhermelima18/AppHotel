@@ -12,6 +12,7 @@ namespace AppHotel.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HospedagemCalculada : ContentPage
     {
+
         public HospedagemCalculada()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace AppHotel.View
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ContratacaoHospedagem());
+            App.Current.MainPage = new ContratacaoHospedagem();
         }
     }
 }
